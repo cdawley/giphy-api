@@ -1,0 +1,25 @@
+.result-button {
+    margin-top: 0.5em;
+    margin-right: 0.5em;
+}
+
+#topfixed {
+    background: #7f7f7f;
+    background: rgba(255, 255, 255, 0.9);
+    padding-bottom: 1em;
+}
+
+div#results-div {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 11%;
+}
+
+.search-result {
+    display: inline-flex;
+}
+
+.card-title {
+    padding-right: 1em;
+    padding-left: 1em;
+}

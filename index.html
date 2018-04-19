@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+
+    <title>Giphy API Homework</title>
+
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<div class="container-fluid">
+
+    <div class="row mt-10 fixed-top mb-1" id="topfixed">
+        <div class="col">
+
+            <form id="search-form">
+                <label for="image-input" class="m-1">Search for an image</label>
+                <input type="text" id="image-input">
+                <!-- This button will trigger our AJAX call -->
+                <input id="find-image" class="btn btn-secondary d-block mx-auto mt-1 search-button" type="submit" value="Image Search">
+            </form>
+
+        </div>
+
+        <div class="col" id="buttons-div">
+          <!-- search buttons will be placed here -->
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="d-flex" id="results-div">
+            <!-- search results will be placed here-->
+        </div>
+
+
+</div>
+</div>
+
+
+
+
+
+<!--Jquery min (Bootstrap's slim does not support Ajax!)-->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<!--'Popper', and Bootstrap JS files-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+<!-- JS file for searches, etc -->
+<script src="assets/javascript/script.js" type="text/javascript">
+</script>
+
+<!-- Page-related Javascript -->
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        // element height percentage of document height
+        // console.log("percentage: " + $("div#topfixed").height() / $(document).height() );
+
+
+
+
+        fillSearchButtons();
+
+
+        // this is the event listener for the search field button click (submit button)
+        $("#find-image").on("click", function(event) {
+            event.preventDefault();
+
+            console.log("clicked search button");
+            var searchTerm = $("#image-input").val().trim();
+
+            arraySearchTerms.push(searchTerm);
+            fillSearchButtons();
+            $("div#results-div").empty();
+            giphySearch(searchTerm, 10);
+
+        });
+
+
+        $("button.result-button").on("click", function () {
+            console.log("clicked");
+            let searchWhat = $(this).data("search");
+            console.log("searching for: " + searchWhat);
+            $("div#div#results-div").empty();
+            giphySearch(searchWhat, 10);
+        });
+    });
+
+        $("body").on("click","img","click", function () {
+
+
+
+            let state = $(this).data("state");
+            console.log($(this).attr("state"));
+            console.log($(this).data("still"));
+
+
+            //toggle state
+
+            if (state == "still") {
+                console.log("animate: " + $(this).data("animate"));
+                $(this).attr("src", $(this).data("animate"));
+                $(this).data("state", "animate");
+            } else if (state == "animate"){
+                console.log("still: " + $(this).data("still"));
+                $(this).attr("src", $(this).data("still"));
+                $(this).data("state", "still");
+            }
+
+            });
+
+
+
+
+</script>
+
+</body>
+</html>
