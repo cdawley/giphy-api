@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
 
     <title>Giphy API Homework</title>
 
@@ -26,7 +25,7 @@
                 <!-- This button will trigger our AJAX call -->
                 <input id="find-image" class="btn btn-secondary d-block mx-auto mt-1 search-button" type="submit" value="Image Search">
             </form>
-
+        <p text="lead">When a search is made, click an image in the search results to toggle animation.</p>
         </div>
 
         <div class="col" id="buttons-div">
@@ -65,11 +64,6 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-
-        // element height percentage of document height
-        // console.log("percentage: " + $("div#topfixed").height() / $(document).height() );
-
-
 
 
         fillSearchButtons();
