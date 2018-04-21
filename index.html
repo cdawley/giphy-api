@@ -78,7 +78,9 @@
 
             arraySearchTerms.push(searchTerm);
             fillSearchButtons();
+
             $("div#results-div").empty();
+
             giphySearch(searchTerm, 10);
 
         });
@@ -88,7 +90,7 @@
             console.log("clicked");
             let searchWhat = $(this).data("search");
             console.log("searching for: " + searchWhat);
-            $("div#div#results-div").empty();
+            $("div#results-div").empty();
             giphySearch(searchWhat, 10);
         });
     });
